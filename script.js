@@ -24,10 +24,11 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-var uppercase = "ABCD";
+//elements to add to string
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowercase = uppercase.toLowerCase();
-var special = "!@#$";
-var number = "1234";
+var special = "!@#$%^&*()-+=<>,."
+var number = "123456789";
 var passwordString = "";
 
 console.log(uppercase, lowercase);
@@ -36,10 +37,18 @@ function generatePassword() {
   var passwordLength = prompt(
     "Enter the ength of your password 8-128 characters"
   );
+
+//if statement to check input return on invalid response
+//check for type and range 8-128
+
+
+
   var includeUppercase = confirm("Uppercase letters");
   var includeLowercase = confirm("Lowercase letters");
   var includeSpecial = confirm("Special Characters");
   var includeNumber = confirm("numbers");
+
+  //if all false return 
 
   if (includeUppercase) {
     passwordString += uppercase;
