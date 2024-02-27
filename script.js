@@ -43,10 +43,24 @@ function generatePassword() {
 
   //variables to add to string
   var includeUppercase = confirm("Uppercase letters");
-  var includeLowercase = confirm("Lowercase letters");
-  var includeSpecial = confirm("Special Characters");
-  var includeNumber = confirm("numbers");
+  //if user selects cancel value will be null then set false
+  //repeat for each choice
+  if (includeUppercase === null) {
+    includeUppercase = false;
 
+    
+  var includeLowercase = confirm("Lowercase letters");
+  if (includeLowercase === null) {
+    includeLowercase = false;
+  }
+  var includeSpecial = confirm("Special Characters");
+  if (includeSpecial === null) {
+    includeSpecial = false;
+  }
+  var includeNumber = confirm("numbers");
+  if (includeNumber === null) {
+    includeNumber = false;
+  }
   //if all false return otherwise concatenate desired chars
   if (
     !includeLowercase &&
