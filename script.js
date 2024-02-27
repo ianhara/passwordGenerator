@@ -30,26 +30,33 @@ var lowercase = uppercase.toLowerCase();
 var special = "!@#$%^&*()-+=<>,."
 var number = "123456789";
 var passwordString = "";
-
+var passLength = false;
 console.log(uppercase, lowercase);
 
 function generatePassword() {
+  //using a while loop to make sure that a valid length is entered
+  while(!passLength){
   var passwordLength = prompt(
     "Enter the ength of your password 8-128 characters"
   );
-
-//if statement to check input return on invalid response
-//check for type and range 8-128
-
-
-
+  if (!isNaN(passwordLength) && passwordLength>=8 && passwordLength<=128){
+    passLength = true;
+  }
+  else alert("invalid length, please enter a value from 8-128")
+  }
+ 
+  //variables to add to string
   var includeUppercase = confirm("Uppercase letters");
   var includeLowercase = confirm("Lowercase letters");
   var includeSpecial = confirm("Special Characters");
   var includeNumber = confirm("numbers");
 
   //if all false return 
-
+if(!includeLowercase && !includeNumber && !includeSpecial && !includeUppercase){
+  alert("you must select yes for at least one")
+  generatePassword()
+  return
+}
   if (includeUppercase) {
     passwordString += uppercase;
     console.log(passwordString);
@@ -79,3 +86,5 @@ function generatePassword() {
   }
   return password
 }
+
+
