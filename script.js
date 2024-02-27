@@ -48,7 +48,7 @@ function generatePassword() {
   if (includeUppercase === null) {
     includeUppercase = false;
 
-    
+  }
   var includeLowercase = confirm("Lowercase letters");
   if (includeLowercase === null) {
     includeLowercase = false;
